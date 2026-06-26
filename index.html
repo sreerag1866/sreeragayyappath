@@ -3,375 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sreerag Ayyappath | Portfolio</title>
+    <title>Sreerag Ayyappath - Resume</title>
     <style>
-        /* CSS RESET & BASE STYLES */
-        * {
+        :root {
+            --bg-color: #121212;
+            --text-main: #f4f4f4;
+            --text-muted: #a0a0a0;
+            --accent: #ffffff;
+            --container-bg: #1e1e1e;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* NAVIGATION */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        nav .logo {
-            color: #fff;
-            font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        nav ul li a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #fff;
-        }
-
-        /* HERO SECTION (BLACK BACKGROUND) */
-        #home {
-            background-color: #0a0a0a;
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 100px 50px 50px;
-        }
-
-        .hero-container {
-            display: flex;
-            align-items: center;
-            max-width: 1100px;
-            gap: 50px;
-        }
-
-        .hero-text h1 {
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .hero-text h2 {
-            font-size: 1.5rem;
-            color: #888;
-            margin-bottom: 20px;
-            font-weight: 300;
-            letter-spacing: 3px;
-        }
-
-        .hero-text p {
-            max-width: 500px;
-            color: #bbb;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #fff;
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            border-radius: 3px;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background: #ccc;
-        }
-
-        .hero-image img {
-            width: 350px;
-            height: 450px;
-            object-fit: cover;
-            border-radius: 10px;
-            filter: grayscale(100%);
-            transition: filter 0.5s ease;
-        }
-
-        .hero-image img:hover {
-            filter: grayscale(0%);
-        }
-
-        /* SECTIONS COMMON */
-        section {
-            padding: 80px 50px;
-            max-width: 1200px;
+        .container {
+            max-width: 900px;
             margin: 0 auto;
+            padding: 40px 20px;
         }
-
-        h3.section-title {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
+        header {
             text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin: 0;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-
-        /* SKILLS & EXPERIENCE */
-        .resume-grid {
+        h2 {
+            color: var(--text-muted);
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-top: 5px;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            color: var(--text-muted);
+        }
+        .section-title {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .grid-2-col {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 30px;
         }
-
-        .resume-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
+        @media (max-width: 768px) {
+            .grid-2-col {
+                grid-template-columns: 1fr;
+            }
         }
-
-        .resume-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
         }
-
-        .resume-card span {
-            color: #777;
-            font-size: 0.9rem;
-            display: block;
-            margin-bottom: 15px;
+        .info-table td {
+            padding: 8px 0;
+            vertical-align: top;
         }
-
-        .skills-list {
+        .info-table td:first-child {
+            font-weight: bold;
+            width: 40%;
+            color: var(--text-muted);
+        }
+        ul.skills-list {
+            list-style-type: none;
+            padding: 0;
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
-
-        .skill-tag {
-            background: #222;
-            color: #fff;
+        ul.skills-list li {
+            background-color: var(--container-bg);
             padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
         }
-
-        /* PORTFOLIO GRID */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+        .job {
+            margin-bottom: 25px;
         }
-
-        .portfolio-item {
-            background: #ddd;
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            font-weight: bold;
-            color: #555;
-            text-transform: uppercase;
-            transition: transform 0.3s ease, background 0.3s;
-            cursor: pointer;
+        .job h3 {
+            margin: 0 0 5px 0;
+            color: var(--accent);
         }
-
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-            background: #222;
-            color: #fff;
-        }
-
-        /* FOOTER / CONTACT */
-        footer {
-            background: #0a0a0a;
-            color: #fff;
-            padding: 60px 50px;
-            text-align: center;
-        }
-
-        footer h3 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        footer p {
-            color: #bbb;
+        .job .meta {
+            font-style: italic;
+            color: var(--text-muted);
             margin-bottom: 10px;
         }
-
-        footer a {
-            color: #fff;
-            text-decoration: underline;
+        .job ul {
+            padding-left: 20px;
         }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 900px) {
-            .hero-container {
-                flex-direction: column-reverse;
-                text-align: center;
-            }
-            .hero-text p {
-                margin: 0 auto 30px;
-            }
-            .resume-grid {
-                grid-template-columns: 1fr;
-            }
+        .education-item {
+            margin-bottom: 15px;
         }
-
-        @media (max-width: 600px) {
-            nav {
-                flex-direction: column;
-                gap: 15px;
-                padding: 15px;
-            }
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .hero-text h1 {
-                font-size: 2.8rem;
-            }
-            .hero-image img {
-                width: 100%;
-                height: auto;
-            }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #333;
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">SA.</div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <header id="home">
-        <div class="hero-container">
-            <div class="hero-text">
-                <h1>Sreerag<br>Ayyappath</h1>
-                <h2>GRAPHIC DESIGNER</h2>
-                <p>Graphic Designer with over 10 years of professional experience. Specialized in producing high-impact print media, promotional branding, and advertising collateral in Dubai, UAE.</p>
-                <a href="#portfolio" class="btn">View My Work</a>
-            </div>
-            <div class="hero-image">
-                <img src="https://via.placeholder.com/350x450/333333/ffffff?text=Add+Your+Portrait" alt="Sreerag Ayyappath">
-            </div>
+<div class="container">
+    <header>
+        <h1>Sreerag Ayyappath[cite: 1]</h1>
+        <h2>Graphic Designer[cite: 1]</h2>
+        <div class="contact-info">
+            <span>LOC: Dubai, UAE[cite: 1]</span>
+            <span>TEL: +971 58 833 8975[cite: 1]</span>
+            <span>IN: /IN/SREERAGANAIR[cite: 1]</span>
+            <span>EMAIL: sreeraganair@gmail.com[cite: 1]</span>
         </div>
     </header>
 
-    <section id="experience">
-        <h3 class="section-title">Experience & Skills</h3>
-        <div class="resume-grid">
-            
-            <div>
-                <div class="resume-card">
-                    <h4>Designer & Digital Marketing</h4>
-                    <span>Smartprinty Advertising, Dubai | 2016 - Present</span>
-                    <p>Lead the end-to-end design process for print media, manage digital marketing assets, and develop promotional branding materials for diverse corporate clients.</p>
-                </div>
-                <div class="resume-card">
-                    <h4>Graphic Designer</h4>
-                    <span>DC Infotec, Kerala | 2014 - 2016</span>
-                    <p>Designed engaging marketing materials and corporate identities, significantly improving brand presentation.</p>
-                </div>
-                <div class="resume-card">
-                    <h4>Freelance Web & Graphic Designer</h4>
-                    <span>2013 - 2014</span>
-                    <p>Provided bespoke web and graphic design services to independent clients and small businesses.</p>
-                </div>
-            </div>
-
-            <div>
-                <div class="resume-card">
-                    <h4>Core Competencies</h4>
-                    <br>
-                    <div class="skills-list">
-                        <span class="skill-tag">Print Media Design</span>
-                        <span class="skill-tag">Brand Identity</span>
-                        <span class="skill-tag">Brochures & Catalogues</span>
-                        <span class="skill-tag">Advertising Leaflets</span>
-                        <span class="skill-tag">Promotional Branding</span>
-                        <span class="skill-tag">Digital Marketing</span>
-                        <span class="skill-tag">Illustration AI Mockups</span>
-                    </div>
-                </div>
-                <div class="resume-card">
-                    <h4>Tools & Tech</h4>
-                    <br>
-                    <div class="skills-list">
-                        <span class="skill-tag">Adobe Creative Suite</span>
-                        <span class="skill-tag">Google Gemini</span>
-                        <span class="skill-tag">ChatGPT</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+    <section>
+        <p>Graphic Designer with over 10 years of professional experience[cite: 1]. Specialized in producing high-impact print media, promotional branding, and advertising collateral[cite: 1]. Adept at transforming client concepts into visually striking designs that align with marketing objectives[cite: 1].</p>
     </section>
 
-    <section id="portfolio">
-        <h3 class="section-title">Selected Works</h3>
-        <p style="text-align: center; margin-bottom: 40px; color: #666;">A curated showcase of design works spanning over a decade, structured into specialized disciplines.</p>
+    <div class="grid-2-col">
+        <section>
+            <h3 class="section-title">Personal Info[cite: 1]</h3>
+            <table class="info-table">
+                <tr>
+                    <td>D.O.B</td>
+                    <td>27th Jan 1993[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td>Nationality</td>
+                    <td>Indian[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td>Passport No</td>
+                    <td>C9510856[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td>Job Visa Exp.</td>
+                    <td>24th Oct 2026[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td>Driving License</td>
+                    <td>Valid UAE License[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>Flat 604, Arouba Bldg., Um al Taraffa, Al Gharb, Sharjah, U.A.E[cite: 1]<br>Ref. Arouba Pharmacy[cite: 1]</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h3 class="section-title">Core Skills[cite: 1]</h3>
+            <ul class="skills-list">
+                <li>Print Media Design[cite: 1]</li>
+                <li>Brochures & Catalogues[cite: 1]</li>
+                <li>Promotional Branding[cite: 1]</li>
+                <li>Advertising Leaflets[cite: 1]</li>
+                <li>Web & Graphic Design[cite: 1]</li>
+                <li>Illustration[cite: 1]</li>
+                <li>AI Mockups[cite: 1]</li>
+                <li>Digital Marketing[cite: 1]</li>
+                <li>Adobe Creative Suite[cite: 1]</li>
+                <li>Google Gemini[cite: 1]</li>
+                <li>ChatGPT[cite: 1]</li>
+            </ul>
+        </section>
+    </div>
+
+    <section>
+        <h3 class="section-title">Experience[cite: 1]</h3>
         
-        <div class="portfolio-grid">
-            <div class="portfolio-item">Logo & Typography</div>
-            <div class="portfolio-item">Brand Identity</div>
-            <div class="portfolio-item">Digital Print Media</div>
-            <div class="portfolio-item">Social Media Creatives</div>
-            <div class="portfolio-item">Corporate Promotional Gifts</div>
-            <div class="portfolio-item">3D Works & Signage</div>
+        <div class="job">
+            <h3>SMARTPRINTY ADVERTISING - DUBAI[cite: 1]</h3>
+            <div class="meta">Designer & Digital Marketing | 2016-Present[cite: 1]</div>
+            <ul>
+                <li>Lead the end-to-end design process for print media, including complex multi-page brochures, catalogs, and advertising leaflets.[cite: 1]</li>
+                <li>Develop promotional branding materials for diverse corporate clients across the UAE, ensuring strong visual identity and brand consistency.[cite: 1]</li>
+                <li>Manage digital marketing design assets, integrating online and offline campaigns.[cite: 1]</li>
+                <li>Oversee pre-press procedures and liaise with printing partners to guarantee high-quality production finishes.[cite: 1]</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <h3>DC INFOTEC - KERALA, INDIA[cite: 1]</h3>
+            <div class="meta">Graphic Designer | 2014-2016[cite: 1]</div>
+            <ul>
+                <li>Designed engaging marketing materials and corporate identities, significantly improving brand presentation for clients.[cite: 1]</li>
+                <li>Created typography, layout designs, and custom graphics for a variety of print and digital formats.[cite: 1]</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <h3>FREELANCE DESIGNER[cite: 1]</h3>
+            <div class="meta">2013-2014[cite: 1]</div>
+            <ul>
+                <li>Provided bespoke web and graphic design services to independent clients and small businesses.[cite: 1]</li>
+                <li>Delivered creative solutions from initial concept through to final delivery, ensuring client satisfaction and project timeliness.[cite: 1]</li>
+            </ul>
         </div>
     </section>
 
-    <footer id="contact">
-        <h3>Let's build something great.</h3>
-        <p>Currently available for better opportunities and full-time roles.</p>
-        <br>
-        <p><strong>Location:</strong> Dubai, U.A.E</p>
-        <p><strong>Phone:</strong> +971 58 833 8975</p>
-        <p><strong>Email:</strong> <a href="mailto:sreeraganair@gmail.com">sreeraganair@gmail.com</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sreeraganair" target="_blank">/in/sreeraganair</a></p>
-        <br><br>
-        <p style="font-size: 0.8rem; color: #555;">&copy; 2026 Sreerag Ayyappath. All rights reserved.</p>
+    <section>
+        <h3 class="section-title">Education[cite: 1]</h3>
+        
+        <div class="education-item">
+            <strong>2011-2014:</strong> B.Sc Multimedia (Image Creative Education Thrissur)[cite: 1]<br>
+            <span style="color: var(--text-muted);">Annamalai University[cite: 1]</span>
+        </div>
+        
+        <div class="education-item">
+            <strong>2010:</strong> V.H.S.E (Accountancy & Auditing)[cite: 1]<br>
+            <span style="color: var(--text-muted);">Kerala State Board[cite: 1]</span>
+        </div>
+    </section>
+
+    <section>
+        <h3 class="section-title">Portfolio Expertise[cite: 1]</h3>
+        <p>A curated showcase of design works spanning over a decade, structured into specialized disciplines. Focused on delivering impactful brand identities, intuitive digital experiences, and compelling multimedia campaigns.[cite: 1]</p>
+        <ul class="skills-list">
+            <li>Logo Identity[cite: 1]</li>
+            <li>Brand Identity[cite: 1]</li>
+            <li>Digital Print Media[cite: 1]</li>
+            <li>Social Media[cite: 1]</li>
+            <li>Corporate Promotional Gifts[cite: 1]</li>
+            <li>3D Works[cite: 1]</li>
+        </ul>
+    </section>
+
+    <footer>
+        <h2>Thank You![cite: 1]</h2>
+        <p>Let's Collaborate[cite: 1]</p>
+        <p>Currently available for better opportunities and full-time roles.[cite: 1]</p>
     </footer>
+</div>
 
 </body>
 </html>
